@@ -1,0 +1,96 @@
+{% load static humanize %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Charity Donation - Home</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="{% url 'home' %}" class="nav-logo">Charity Donation</a>
+            <div class="nav-links">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'donor_dashboard' %}" class="nav-link">Dashboard</a>
+                    <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="nav-link">Login</a>
+                    <a href="{% url 'signup' %}" class="nav-link">Sign Up</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+
+        <div class="messages">
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="message {{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <!-- About Us Section -->
+        <section class="about-us container">
+            <h1>About Charity Donation</h1>
+            <p>
+                We are a dedicated NGO committed to raising funds and gathering resources to improve the lives of those in need.
+                Through transparent and compassionate campaigns, we connect generous donors with meaningful causes.
+                Our mission is to empower communities, provide essential services, and build a better future for everyone.
+            </p>
+        </section>
+
+        <!-- Campaign Grid -->
+        <section class="campaigns container">
+            <h2>Active Campaigns</h2>
+            <div class="campaign-grid">
+                {% for campaign in campaigns %}
+                    <div class="campaign-card">
+                        <h3 class="card-title">{{ campaign.name }}</h3>
+                        <p class="card-description">{{ campaign.description|truncatewords:20 }}</p>
+                        <p class="card-info"><strong>Target:</strong> Tsh: {{ campaign.target_amount|intcomma }}</p>
+                        <p class="card-info"><strong>Pledged:</strong> Tsh: {{ campaign.amount_pledged|intcomma }}</p>
+                        <p class="card-info"><strong>Location:</strong> {{ campaign.location }}</p>
+                        <a href="{% url 'campaign_detail' campaign.pk %}" class="card-button">View Details</a>
+                    </div>
+                {% empty %}
+                    <p class="no-campaigns">No active campaigns.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact container">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Address:</strong>
+                    <p>123 Makongo , Dar es Salaam, Tanzania</p>
+                </div>
+                <div class="contact-item">
+                    <strong>Email:</strong>
+                    <p><a href="mailto:info@charitydonation.org">info@charitydonation.org</a></p>
+                </div>
+                <div class="contact-item">
+                    <strong>Phone:</strong>
+                    <p><a href="tel:+255752886421">+255 752 886 421</a></p>
+                </div>
+            </div>
+            <p class="contact-message">
+                Have questions or want to get involved? Reach out to us anytime – we’d love to hear from you!
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            © 2025 Charity Donation. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

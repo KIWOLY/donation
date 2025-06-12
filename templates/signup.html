@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Charity Donation - Sign Up</title>
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="{% url 'home' %}" class="nav-logo">Charity Donation</a>
+      <div class="nav-links">
+        {% if user.is_authenticated %}
+          <a href="{% url 'donor_dashboard' %}" class="nav-link">Dashboard</a>
+          <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+        {% else %}
+          <a href="{% url 'login' %}" class="nav-link">Login</a>
+          <a href="{% url 'signup' %}" class="nav-link">Sign Up</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="messages">
+      {% if messages %}
+        {% for message in messages %}
+          <p class="message {{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <section class="signup-section">
+      <h1 class="page-title">Create Your Account</h1>
+      <p class="subtitle">Join us and start making a difference!</p>
+      <form method="POST" class="auth-form">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" id="username" name="username" class="form-input" required autofocus />
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" name="email" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label for="phone_number" class="form-label">Phone Number</label>
+          <input type="tel" id="phone_number" name="phone_number" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label for="password1" class="form-label">Password</label>
+          <input type="password" id="password1" name="password1" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label for="password2" class="form-label">Confirm Password</label>
+          <input type="password" id="password2" name="password2" class="form-input" required />
+        </div>
+        <button type="submit" class="auth-button">Sign Up</button>
+      </form>
+      <p class="login-prompt">
+        Already have an account? <a href="{% url 'login' %}" class="login-link">Login here</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      © 2025 Charity Donation. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
