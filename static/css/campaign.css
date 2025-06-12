@@ -1,224 +1,212 @@
-/* Reset */
+/* Reset default styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Body and container */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
 }
 
-/* Navbar */
+/* Navbar Styles */
 .nav {
-    background-color: #2c3e50;
-    padding: 16px;
+  background-color: #1e40af; /* Blue background */
+  padding: 16px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
 }
 
 .nav-logo {
-    color: #fff;
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
+  color: #f7f1f1;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .nav-links {
-    display: flex;
-    gap: 24px;
+  display: flex;
+  gap: 24px;
 }
 
 .nav-link {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #3498db;
+  color: #3db866;
 }
 
-/* Main content */
+/* Main Content Styles */
 .main {
-    max-width: 1200px;
-    margin: 32px auto;
-    padding: 0 16px;
-    flex: 1;
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 24px;
 }
 
-/* Titles */
-.page-title {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 32px;
-    font-size: 32px;
-}
-
-.card-title {
-    color: #2c3e50;
-    font-size: 24px;
-    margin-bottom: 16px;
-}
-
-/* Campaign card container */
-.campaign-card {
-    background-color: #fff;
-    padding: 32px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* Text info */
-.card-info {
-    font-size: 15px;
-    margin: 10px 0;
-}
-
-.campaign-description {
-    color: #555;
-    margin-bottom: 20px;
-}
-
-/* Form */
-.pledge-form {
-    margin-top: 24px;
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-}
-
-.form-label {
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.form-input {
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-bottom: 16px;
-}
-
-.btn-submit {
-    background-color: #27ae60;
-    color: white;
-    padding: 14px;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-submit:hover {
-    background-color: #219150;
-}
-
-/* Auth prompt */
-.auth-prompt {
-    font-size: 16px;
-    color: #888;
-    margin-top: 20px;
-    text-align: center;
-}
-
-.auth-link {
-    color: #3498db;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.auth-link:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
-.footer {
-    background-color: #2c3e50;
-    color: #fff;
-    padding: 16px;
-    text-align: center;
-    width: 100%;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Messages */
 .messages {
-    max-width: 1200px;
-    margin: 16px auto;
-    padding: 0 16px;
+  margin-bottom: 24px;
 }
 
 .message {
-    padding: 10px;
-    border-radius: 5px;
-    margin: 8px 0;
+  padding: 12px 24px;
+  margin-bottom: 8px;
+  border-radius: 4px;
 }
 
 .message.success {
-    background-color: #d4edda;
-    color: #155724;
+  background-color: #d1fae5;
+  color: #065f46;
 }
 
 .message.error {
-    background-color: #f8d7da;
-    color: #721c24;
+  background-color: #fee2e2;
+  color: #991b1b;
 }
 
-/* Responsive */
+/* Page Title Styles */
+.page-title {
+  font-size: 32px;
+  color: #4266d9;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* Campaign Card Styles */
+.campaign-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 24px;
+  color: #3d5dc5;
+  margin-bottom: 16px;
+}
+
+.card-info {
+  font-size: 16px;
+  color: #3e3e3e;
+  margin-bottom: 12px;
+}
+
+.card-info strong {
+  color: #333;
+}
+
+.campaign-description {
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+/* Pledge Form Styles */
+.pledge-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.form-label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3c5cc7;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+.btn-submit {
+  background-color: #3654b9;
+  color: #fff;
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #42ca70;
+}
+
+/* Auth Prompt Styles */
+.auth-prompt {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  margin-top: 24px;
+}
+
+.auth-link {
+  color: #4761b8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #1e40af; /* Blue background */
+  color: #fff;
+  padding: 16px 0;
+  margin-top: 32px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 24px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 16px;
-    }
-    .nav-links {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-    }
-    .page-title {
-        font-size: 24px;
-    }
-    .campaign-card {
-        padding: 24px;
-    }
-    .form-input, .btn-submit {
-        font-size: 14px;
-    }
-}
+  .nav-container trocar para {
+    flex-direction: column;
+    gap: 16px;
+  }
 
-@media (max-width: 480px) {
-    .nav-logo {
-        font-size: 20px;
-    }
-    .nav-link {
-        font-size: 14px;
-    }
-    .main {
-        margin: 16px auto;
-        padding: 0 8px;
-    }
-    .campaign-card {
-        padding: 16px;
-    }
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .campaign-card {
+    padding: 24px;
+  }
 }

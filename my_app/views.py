@@ -7,14 +7,24 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from .models import Campaign, Donor, Donation
 
-
 def home(request):
     campaigns = Campaign.objects.all()
+    for campaign in campaigns:
+        if campaign.target_amount > 0:  # Avoid division by zero
+            campaign.progress_percentage = (campaign.amount_pledged / campaign.target_amount) * 100
+        else:
+            campaign.progress_percentage = 0
     return render(request, 'home.html', {'campaigns': campaigns})
-
 
 def campaign_detail(request, pk):
     campaign = get_object_or_404(Campaign, pk=pk)
+
+    # Calculate progress percentage
+    if campaign.target_amount > 0:
+        progress_percentage = (campaign.amount_pledged / campaign.target_amount) * 100
+    else:
+        progress_percentage = 0
+    remaining = campaign.target_amount - campaign.amount_pledged
 
     if request.method == 'POST' and request.user.is_authenticated:
         try:
@@ -27,7 +37,9 @@ def campaign_detail(request, pk):
             elif campaign.amount_pledged + amount > campaign.target_amount:
                 messages.error(request, 'Donation exceeds campaign target!')
             else:
-                donor = Donor.objects.get(user=request.user)
+                donor, created = Donor.objects.get_or_create(user=request.user)
+                if created:
+                    messages.info(request, 'Donor profile created automatically.')
 
                 Donation.objects.create(
                     donor=donor,
@@ -39,19 +51,19 @@ def campaign_detail(request, pk):
                 campaign.amount_pledged += amount
                 campaign.save()
 
-                messages.success(request, 'Your pledge has been recorded!')
+                messages.success(request, 'Your pledge has been recorded successfully!')
                 return redirect('campaign_detail', pk=campaign.pk)
 
         except (InvalidOperation, ValueError):
-            messages.error(request, 'Invalid pledge amount!')
-        except ObjectDoesNotExist:
-            messages.error(request, 'Donor profile not found!')
+            messages.error(request, 'Invalid pledge amount! Please enter a valid number.')
+        except Exception as e:
+            messages.error(request, f'An error occurred: {str(e)}')
 
-    # Calculate remaining amount
-    remaining = campaign.target_amount - campaign.amount_pledged
-
-    return render(request, 'campaign.html', {'campaign': campaign, 'remaining': remaining})
-
+    return render(request, 'campaign.html', {
+        'campaign': campaign,
+        'remaining': remaining,
+        'progress_percentage': progress_percentage
+    })
 
 @login_required
 def donor_dashboard(request):
@@ -60,9 +72,8 @@ def donor_dashboard(request):
         donations = Donation.objects.filter(donor=donor)
         return render(request, 'donor.html', {'donor': donor, 'donations': donations})
     except ObjectDoesNotExist:
-        messages.error(request, 'Donor profile not found! Please contact support.')
+        messages.error(request, 'Donor profile not found! Please contact support or create a profile.')
         return redirect('home')
-
 
 def signup(request):
     if request.method == 'POST':
@@ -72,26 +83,25 @@ def signup(request):
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
 
-        try:
-            if not all([username, email, phone_number, password1, password2]):
-                messages.error(request, 'All fields are required!')
-            elif password1 != password2:
-                messages.error(request, 'Passwords do not match!')
-            elif User.objects.filter(username=username).exists():
-                messages.error(request, 'Username already taken!')
-            elif User.objects.filter(email=email).exists():
-                messages.error(request, 'Email already in use!')
-            else:
+        if not all([username, email, phone_number, password1, password2]):
+            messages.error(request, 'All fields are required!')
+        elif password1 != password2:
+            messages.error(request, 'Passwords do not match!')
+        elif User.objects.filter(username=username).exists():
+            messages.error(request, 'Username already taken!')
+        elif User.objects.filter(email=email).exists():
+            messages.error(request, 'Email already in use!')
+        else:
+            try:
                 user = User.objects.create_user(username=username, email=email, password=password1)
                 Donor.objects.create(user=user, phone_number=phone_number)
                 login(request, user)
-                messages.success(request, 'Account created successfully!')
+                messages.success(request, 'Account created successfully! Welcome to Charity Donation.')
                 return redirect('donor_dashboard')
-        except ValueError:
-            messages.error(request, 'Invalid input! Please check your details.')
+            except ValueError as e:
+                messages.error(request, f'Invalid input: {str(e)}')
 
     return render(request, 'signup.html')
-
 
 def user_login(request):
     if request.method == 'POST':
@@ -104,15 +114,14 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, 'Logged in successfully!')
+                messages.success(request, 'Logged in successfully! Redirecting to your dashboard.')
                 return redirect('donor_dashboard')
             else:
-                messages.error(request, 'Invalid credentials!')
+                messages.error(request, 'Invalid credentials! Please try again.')
 
     return render(request, 'login.html')
 
-
 def user_logout(request):
     logout(request)
-    messages.success(request, 'Logged out successfully!')
+    messages.success(request, 'Logged out successfully! Thank you for your support.')
     return redirect('home')

@@ -1,322 +1,399 @@
-/* Reset and base */
+/* Reset default styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background-color: #ebeaee;
 }
 
-/* Container for consistent padding and max width */
-.container {
-    max-width: 1100px;
-    margin: 0 auto 48px;
-    padding: 0 20px;
-}
-
-/* Navigation */
+/* Navbar Styles */
 .nav {
-    background-color: #2c3e50;
-    padding: 16px 0;
+  background-color: #2d49a7; /* Blue background */
+  padding: 16px 0;
+  box-shadow: 0 2px 4px rgba(50, 49, 49, 0.1);
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
 }
 
 .nav-logo {
-    color: #fff;
-    font-size: 28px;
-    text-decoration: none;
-    font-weight: bold;
+  color: #f0eaea;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .nav-links {
-    display: flex;
-    gap: 24px;
+  display: flex;
+  gap: 24px;
 }
 
 .nav-link {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #f39c12;
+  color: #59bd77;
 }
 
-/* Main content */
+/* Main Content Styles */
 .main {
-    flex: 1;
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 24px;
 }
 
-/* Messages */
 .messages {
-    max-width: 1100px;
-    margin: 24px auto;
-    padding: 0 20px;
+  margin-bottom: 24px;
 }
 
 .message {
-    padding: 12px 16px;
-    border-radius: 6px;
-    margin: 10px 0;
-    font-size: 15px;
+  padding: 12px 24px;
+  margin-bottom: 8px;
+  border-radius: 4px;
 }
 
 .message.success {
-    background-color: #d4edda;
-    color: #155724;
+  background-color: #d1fae5;
+  color: #065f46;
 }
 
 .message.error {
-    background-color: #f8d7da;
-    color: #721c24;
+  background-color: #fee2e2;
+  color: #991b1b;
 }
 
-/* About Us */
+/* Hero Section Styles */
+.hero {
+  text-align: center;
+  padding: 64px 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(19, 18, 18, 0.1);
+  margin-bottom: 32px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  color: #3b6899;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #2c2a2a;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* About Us Section Styles */
 .about-us {
-    background-color: #fff;
-    padding: 32px 24px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-bottom: 40px;
-    text-align: center;
+  padding: 32px 0;
+  text-align: center;
 }
 
-.about-us h1 {
-    font-size: 32px;
-    margin-bottom: 16px;
-    color: #2c3e50;
+.about-us h2 {
+  font-size: 32px;
+  color: #3a5ed3;
+  margin-bottom: 16px;
 }
 
 .about-us p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #555;
-    max-width: 700px;
-    margin: 0 auto;
+  font-size: 16px;
+  color: #333333;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* Campaigns Section */
+/* Impact Section Styles */
+.impact {
+  padding: 32px 0;
+  text-align: center;
+}
+
+.impact h2 {
+  font-size: 32px;
+  color: #3b5cca;
+  margin-bottom: 24px;
+}
+
+.impact-stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  background-color: #e7efee;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(33, 33, 33, 0.1);
+  width: 200px;
+}
+
+.stat-item h3 {
+  font-size: 28px;
+  color: #3b5ecf;
+  margin-bottom: 8px;
+}
+
+.stat-item p {
+  font-size: 16px;
+  color: #383838;
+}
+
+/* Campaigns Section Styles */
+.campaigns {
+  padding: 32px 0;
+}
+
 .campaigns h2 {
-    font-size: 28px;
-    margin-bottom: 24px;
-    color: #34495e;
-    border-left: 6px solid #3498db;
-    padding-left: 12px;
+  font-size: 32px;
+  color: #3251b7;
+  text-align: center;
+  margin-bottom: 24px;
 }
 
-/* Campaign grid container */
 .campaign-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
 }
 
-/* Campaign card */
 .campaign-card {
-    background-color: #fff;
-    padding: 24px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f0f4f3;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
 }
 
-.campaign-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* Card content styles */
 .card-title {
-    color: #2c3e50;
-    font-size: 22px;
-    margin-bottom: 14px;
+  font-size: 20px;
+  color: #3457cc;
+  margin-bottom: 12px;
 }
 
 .card-description {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 16px;
-    flex-grow: 1;
+  font-size: 16px;
+  color: #262525;
+  margin-bottom: 12px;
 }
 
 .card-info {
-    font-size: 14px;
-    margin: 6px 0;
-    color: #444;
+  font-size: 14px;
+  color: #2f2f2f;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  background-color: #e5e7eb;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress {
+  background-color: #33a357;
+  height: 100%;
+  transition: width 0.3s ease;
 }
 
 .card-button {
-    align-self: start;
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    margin-top: 20px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  background-color: #4363cb;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s ease;
 }
 
 .card-button:hover {
-    background-color: #2980b9;
+  background-color: #52c079;
 }
 
 .no-campaigns {
-    text-align: center;
-    color: #666;
-    font-size: 19px;
-    margin-top: 30px;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
 }
 
-/* Contact Section */
+/* Testimonials Section Styles */
+.testimonials {
+  padding: 32px 0;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 32px;
+  color: #4767d1;
+  margin-bottom: 24px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.testimonial-card {
+  background-color: #f0ebeb;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-text {
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* CTA Section Styles */
+.cta {
+  padding: 64px 0;
+  text-align: center;
+  background-color: #dee0e7;
+  color: #2c2c2c;
+  border-radius: 8px;
+  margin: 32px 0;
+}
+
+.cta h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.cta p {
+  font-size: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Contact Section Styles */
 .contact {
-    background-color: #fff;
-    padding: 32px 24px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-bottom: 40px;
+  padding: 32px 0;
+  text-align: center;
 }
 
 .contact h2 {
-    font-size: 28px;
-    margin-bottom: 24px;
-    color: #34495e;
-    border-left: 6px solid #27ae60;
-    padding-left: 12px;
+  font-size: 32px;
+  color: #3554bb;
+  margin-bottom: 24px;
 }
 
 .contact-info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    margin-bottom: 20px;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
 }
 
 .contact-item {
-    flex: 1 1 250px;
-    color: #444;
+  text-align: left;
 }
 
 .contact-item strong {
-    font-weight: 700;
-    display: block;
-    margin-bottom: 8px;
-    font-size: 16px;
+  font-size: 16px;
+  color: #252525;
 }
 
-.contact-item p, .contact-item a {
-    font-size: 15px;
-    color: #555;
-    text-decoration: none;
+.contact-item p {
+  font-size: 16px;
+  color: #666;
+}
+
+.contact-item a {
+  color: #1e40af;
+  text-decoration: none;
 }
 
 .contact-item a:hover {
-    color: #27ae60;
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .contact-message {
-    text-align: center;
-    font-style: italic;
-    color: #666;
-    font-size: 16px;
+  font-size: 16px;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* Footer */
+/* Footer Styles */
 .footer {
-    background-color: #2c3e50;
-    color: #fff;
-    padding: 18px 20px;
-    text-align: center;
-    width: 100%;
+  background-color: #1e40af; /* Blue background */
+  color: #efe9e9;
+  padding: 16px 0;
+  margin-top: 32px;
 }
 
 .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 24px;
 }
 
-/* Responsive adjustments */
-
-/* Tablets */
+/* Responsive Design */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 16px;
-    }
-    .nav-links {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-    }
-    .about-us h1,
-    .campaigns h2,
-    .contact h2 {
-        font-size: 24px;
-    }
-    .card-title {
-        font-size: 20px;
-    }
-    .campaign-card {
-        padding: 20px;
-    }
-}
+  .nav-container {
+    flex-direction: column;
+    gap: 16px;
+  }
 
-/* Phones */
-@media (max-width: 480px) {
-    .nav-logo {
-        font-size: 22px;
-    }
-    .nav-link {
-        font-size: 14px;
-    }
-    .container {
-        padding: 0 12px;
-        margin-bottom: 32px;
-    }
-    .card-title {
-        font-size: 18px;
-    }
-    .card-description {
-        font-size: 14px;
-    }
-    .card-info {
-        font-size: 13px;
-    }
-    .card-button {
-        padding: 8px 14px;
-        font-size: 14px;
-    }
-    .about-us p,
-    .contact-message {
-        font-size: 15px;
-    }
-    .contact-info {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .contact-item {
-        flex: 1 1 100%;
-    }
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero {
+    padding: 32px 0;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .impact-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+  }
 }

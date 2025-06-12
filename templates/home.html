@@ -25,7 +25,6 @@
     </nav>
 
     <main class="main">
-
         <div class="messages">
             {% if messages %}
                 {% for message in messages %}
@@ -34,17 +33,34 @@
             {% endif %}
         </div>
 
-        <!-- About Us Section -->
-        <section class="about-us container">
-            <h1>About Charity Donation</h1>
-            <p>
-                We are a dedicated NGO committed to raising funds and gathering resources to improve the lives of those in need.
-                Through transparent and compassionate campaigns, we connect generous donors with meaningful causes.
-                Our mission is to empower communities, provide essential services, and build a better future for everyone.
-            </p>
+        <section class="hero container">
+            <h1>Make a Difference Today</h1>
+            <p>Every donation helps us transform lives by providing food, shelter, and education to those in need. Join us in building a brighter future!</p>
         </section>
 
-        <!-- Campaign Grid -->
+        <section class="about-us container">
+            <h2>About Us</h2>
+            <p>We are a passionate NGO dedicated to raising funds and resources to uplift communities in need. With transparency and compassion, we connect your generosity to impactful causes—empowering education, healthcare, and hope across Tanzania and beyond. Together, we can create lasting change.</p>
+        </section>
+
+        <section class="impact container">
+            <h2>Our Impact</h2>
+            <div class="impact-stats">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Families Supported</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2,000+</h3>
+                    <p>Children Educated</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1M Tsh</h3>
+                    <p>Funds Raised</p>
+                </div>
+            </div>
+        </section>
+
         <section class="campaigns container">
             <h2>Active Campaigns</h2>
             <div class="campaign-grid">
@@ -54,6 +70,9 @@
                         <p class="card-description">{{ campaign.description|truncatewords:20 }}</p>
                         <p class="card-info"><strong>Target:</strong> Tsh: {{ campaign.target_amount|intcomma }}</p>
                         <p class="card-info"><strong>Pledged:</strong> Tsh: {{ campaign.amount_pledged|intcomma }}</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: {{ campaign.progress_percentage|floatformat:0 }}%;"></div>
+                        </div>
                         <p class="card-info"><strong>Location:</strong> {{ campaign.location }}</p>
                         <a href="{% url 'campaign_detail' campaign.pk %}" class="card-button">View Details</a>
                     </div>
@@ -63,13 +82,31 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <section class="testimonials container">
+            <h2>What People Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Donating here changed lives in my village. Thank you!"</p>
+                    <p class="testimonial-author">- Amina, Donor</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The transparency and impact are incredible."</p>
+                    <p class="testimonial-author">- John, Volunteer</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta container">
+            <h2>Be the Change</h2>
+            <p>Your support can provide hope and resources to those who need it most. Every contribution counts—donate today and join our mission!</p>
+        </section>
+
         <section class="contact container">
             <h2>Contact Us</h2>
             <div class="contact-info">
                 <div class="contact-item">
                     <strong>Address:</strong>
-                    <p>123 Makongo , Dar es Salaam, Tanzania</p>
+                    <p>123 Makongo, Dar es Salaam, Tanzania</p>
                 </div>
                 <div class="contact-item">
                     <strong>Email:</strong>
@@ -84,7 +121,6 @@
                 Have questions or want to get involved? Reach out to us anytime – we’d love to hear from you!
             </p>
         </section>
-
     </main>
 
     <footer class="footer">

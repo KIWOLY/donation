@@ -1,0 +1,212 @@
+/* Reset and base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation */
+.nav {
+    background-color: #2c3e50;
+    padding: 16px;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-link:hover {
+    color: #3498db;
+}
+
+/* Main content */
+.main {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 16px;
+    flex: 1;
+}
+
+/* Messages */
+.messages {
+    max-width: 1200px;
+    margin: 16px auto 32px;
+    padding: 0 16px;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 8px 0;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 32px;
+    font-size: 32px;
+}
+
+/* Donor card container */
+.donor-card {
+    background-color: #fff;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Card titles and info */
+.card-title {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.card-info {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+/* Section titles */
+.section-title {
+    color: #2c3e50;
+    font-size: 20px;
+    margin: 32px 0 16px;
+}
+
+/* Donation table */
+.donation-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.table-header {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.table-header th {
+    padding: 12px;
+    text-align: left;
+}
+
+.table-row td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.no-data {
+    text-align: center;
+    color: #666;
+    padding: 16px;
+}
+
+/* Footer */
+.footer {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 16px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsive */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    .page-title {
+        font-size: 24px;
+    }
+    .donor-card {
+        padding: 24px;
+    }
+    .table-header th, .table-row td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 20px;
+    }
+    .nav-link {
+        font-size: 14px;
+    }
+    .main {
+        margin: 16px auto;
+        padding: 0 8px;
+    }
+    .donor-card {
+        padding: 16px;
+    }
+    .card-title {
+        font-size: 20px;
+    }
+    .section-title {
+        font-size: 18px;
+    }
+    .donation-table {
+        font-size: 14px;
+    }
+}
