@@ -1,77 +1,76 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Charity Donation - Donor Dashboard</title>
-    <link rel="stylesheet" href="{% static 'css/donor.css' %}" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Charity Donation - Donor Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/donor.css' %}" />
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="{% url 'home' %}" class="nav-logo">Charity Donation</a>
-            <div class="nav-links">
-                {% if user.is_authenticated %}
-                    <a href="{% url 'donor_dashboard' %}" class="nav-link">Dashboard</a>
-                    <a href="{% url 'logout' %}" class="nav-link">Logout</a>
-                {% else %}
-                    <a href="{% url 'login' %}" class="nav-link">Login</a>
-                    <a href="{% url 'signup' %}" class="nav-link">Sign Up</a>
-                {% endif %}
-            </div>
-        </div>
-    </nav>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="{% url 'home' %}" class="nav-logo">Charity Donation</a>
+      <div class="nav-links">
+        {% if user.is_authenticated %}
+          <a href="{% url 'donor_dashboard' %}" class="nav-link">Dashboard</a>
+          <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+        {% else %}
+          <a href="{% url 'login' %}" class="nav-link">Login</a>
+          <a href="{% url 'signup' %}" class="nav-link">Sign Up</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
 
-    <main class="main">
-        <div class="messages">
-            {% if messages %}
-                {% for message in messages %}
-                    <p class="message {{ message.tags }}">{{ message }}</p>
-                {% endfor %}
-            {% endif %}
-        </div>
+  <main class="main">
+    <div class="messages">
+      {% if messages %}
+        {% for message in messages %}
+          <p class="message {{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    </div>
 
-        <h1 class="page-title">Donor Dashboard</h1>
+    <h1 class="page-title">Donor Dashboard</h1>
 
-        <div class="donor-card">
-            <h2 class="card-title">Welcome, {{ donor.user.username }}</h2>
-            <p class="card-info"><strong>Email:</strong> {{ donor.user.email }}</p>
-            <p class="card-info"><strong>Phone:</strong> {{ donor.phone_number }}</p>
+    <div class="donor-card">
+      <h2 class="card-title">Welcome, {{ donor.user.username }}</h2>
+      <p class="card-info"><strong>Email:</strong> {{ donor.user.email }}</p>
+      <p class="card-info"><strong>Phone:</strong> {{ donor.phone_number }}</p>
 
-            <h3 class="section-title">Your Donations</h3>
-            <table class="donation-table">
-                <thead>
-                    <tr class="table-header">
-                        <th>Campaign</th>
-                        <th>Amount Pledged</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for donation in donations %}
-                    <tr class="table-row">
-                        <td>{{ donation.campaign.name }}</td>
-                        <td>Tsh: {{ donation.amount_pledged }}</td>
-                        <td>{{ donation.date_pledged|date:"Y-m-d" }}</td>
-                        <td>{{ donation.status }}</td>
-                    </tr>
-                    {% empty %}
-                    <tr>
-                        <td colspan="4" class="no-data">No donations yet.</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </main>
+      <h3 class="section-title">Your Donations</h3>
+      <table class="donation-table">
+        <thead>
+          <tr class="table-header">
+            <th>Campaign</th>
+            <th>Amount Pledged</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for donation in donations %}
+          <tr class="table-row">
+            <td>{{ donation.campaign.name }}</td>
+            <td>Tsh: {{ donation.amount_pledged }}</td>
+            <td>{{ donation.date_pledged|date:"Y-m-d" }}</td>
+            <td>{{ donation.status }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4" class="no-data">No donations yet.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </main>
 
-    <footer class="footer">
-        <div class="footer-container">
-            © 2025 Charity Donation. All rights reserved.
-        </div>
-    </footer>
+  <footer class="footer">
+    <div class="footer-container">
+      © 2025 Charity Donation. All rights reserved.
+    </div>
+  </footer>
 </body>
 </html>

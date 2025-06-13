@@ -9,7 +9,8 @@ body {
   font-family: 'Arial', sans-serif;
   line-height: 1.5;
   color: #333;
-  background-color: #ebeaee;
+  background-color: #e7e7ef;
+  
 }
 
 /* Navbar Styles */
@@ -17,6 +18,7 @@ body {
   background-color: #2d49a7; /* Blue background */
   padding: 16px 0;
   box-shadow: 0 2px 4px rgba(50, 49, 49, 0.1);
+ 
 }
 
 .nav-container {
@@ -26,6 +28,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 24px;
+
 }
 
 .nav-logo {

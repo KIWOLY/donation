@@ -1,3 +1,5 @@
+/* donor.css */
+
 /* Reset default styles */
 * {
   margin: 0;
@@ -5,16 +7,23 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   color: #222222;
   background-color: #eeebeb;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 /* Navbar Styles */
 .nav {
-  background-color: #1e40af; /* Blue background */
+  background-color: #1e40af;
   padding: 16px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -44,7 +53,7 @@ body {
   color: #f3ede9;
   text-decoration: none;
   font-size: 16px;
-   font-weight: bold;
+  font-weight: bold;
   transition: color 0.3s ease;
 }
 
@@ -54,6 +63,7 @@ body {
 
 /* Main Content Styles */
 .main {
+  flex: 1;
   max-width: 1200px;
   margin: 32px auto;
   padding: 0 24px;
@@ -160,16 +170,16 @@ body {
 
 /* Footer Styles */
 .footer {
-  background-color: #1e40af; /* Blue background */
+  background-color: #1e40af;
   color: #fff;
   padding: 16px 0;
-  margin-top: 32px;
+  text-align: center;
+  margin-top: auto;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
   padding: 0 24px;
 }
 

@@ -10,7 +10,7 @@ from .models import Campaign, Donor, Donation
 def home(request):
     campaigns = Campaign.objects.all()
     for campaign in campaigns:
-        if campaign.target_amount > 0:  # Avoid division by zero
+        if campaign.target_amount > 0:  
             campaign.progress_percentage = (campaign.amount_pledged / campaign.target_amount) * 100
         else:
             campaign.progress_percentage = 0
@@ -19,7 +19,7 @@ def home(request):
 def campaign_detail(request, pk):
     campaign = get_object_or_404(Campaign, pk=pk)
 
-    # Calculate progress percentage
+    
     if campaign.target_amount > 0:
         progress_percentage = (campaign.amount_pledged / campaign.target_amount) * 100
     else:
