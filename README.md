@@ -16,4 +16,4 @@ The goal of this project is to bring people together to contribute to meaningful
 
 🤝 Contribute
 
-Everyone can take part—whether by donating, sharing campaigns, or improving the platform. Together, we can make a difference.
+Everyone can take part—whether by donating, sharing campaigns, or improving the platform. Together, we can make a difference and support others.
